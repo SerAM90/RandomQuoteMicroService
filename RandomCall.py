@@ -1,9 +1,11 @@
 import quote_generator
 from quoters import Quote
 
+
 def generate_random_quote(quote):
-    quote = print(Quote.print())
+    quote = Quote.print()
     return quote
+
 
 #generate_random_quote(Quote)
 #    print(Quote.print())

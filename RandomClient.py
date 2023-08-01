@@ -1,19 +1,25 @@
 
-
+# import RandomCall
+# import RandomQuoteGUI
 import socket
 
 HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 2259  # The port used by the server
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
-    print(f"connected to:  {HOST}  Port:  {PORT}")
-    message = b'A message from CS361'
-    s.sendall(message)
-    print('message sent:', message)
-    data = s.recv(1024)
+RandomSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+RandomSocket.connect((HOST, PORT))
+print(f"connected to:  {HOST}  Port:  {PORT}")
 
-print(f"Received {data!r}")
+
+def get_quote():
+
+    quote = b'quote'
+    RandomSocket.sendall(quote)
+    print('message sent:', quote.decode())
+    data = RandomSocket.recv(1024).decode()
+    print(f"Received {data!r}")
+    return data
+
 
 # # This is a sample Python script.
 #
